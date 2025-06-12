@@ -259,3 +259,124 @@ section {
     transform: translate(105vw) rotate(-360deg);
   }
 }
+
+/*세번째 섹션*/
+
+.sec3 {
+  padding: 200px 0;
+}
+
+.sec_title {
+  text-align: center;
+  font-size: var(--xl-font-size);
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+
+.sec_title + p {
+  font-size: var(--md-font-size);
+  text-align: center;
+  font-weight: 200;
+  margin-bottom: 100px;
+}
+.icon_content {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+
+.icon_content > div div {
+  transition: 0.5s;
+}
+.icon_content > div:hover div {
+  color: var(--sub-color);
+  transform: translateY(-10px);
+}
+.text_bottom {
+  margin-top: 20px;
+  border-top: 1px solid #444;
+  padding-top: 10px;
+}
+.text_bottom > h3 {
+  font-weight: 600;
+}
+.text_bottom > p {
+  font-weight: 200;
+}
+
+/*네번째 섹션*/
+.sec4 {
+  background-color: var(--sub-color);
+  padding: 200px 0;
+  position: relative;
+}
+.sec4::after,
+.sec4::before {
+  content: "circle";
+  font-size: 0;
+  display: block;
+  width: 600px;
+  height: 600px;
+  border-radius: 100%;
+}
+.sec4::before {
+  background-color: var(--main-color);
+  position: absolute;
+  left: -100px;
+  top: 100;
+}
+.sec4::after {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background-color: #fff;
+  right: 100px;
+  bottom: 100px;
+  opacity: 0.4;
+  z-index: 5;
+}
+.sec4 .con {
+  display: flex;
+}
+.sec4 > .con > .heading_left {
+  width: clamp(480px, 30%, 480px);
+  height: 1300px;
+  position: relative;
+}
+.heading_left > .text_box {
+  position: sticky;
+  top: 200px;
+}
+.heading_left > .text_box h2 {
+  font-size: var(--xl-font-size);
+  font-weight: 600;
+  line-height: var(--xl-line-height);
+}
+.heading_left > .text_box p {
+  margin-bottom: 40px;
+}
+.more {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 150px;
+  padding: 8px 16px;
+  border: 1px solid #fff;
+  transition: 0.5s;
+  font-weight: 500;
+}
+.more:hover {
+  color: var(--default-blk);
+  border: 1px solid var(--default-blk);
+}
+.more > i {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+  transition: transform 0.5s;
+}
+.more:hover > i {
+  transform: rotate(360deg);
+}
