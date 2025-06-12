@@ -226,3 +226,36 @@ section {
 .scroll_down:hover {
   bottom: 55px;
 }
+
+/*두번째 섹션*/
+
+#sec2 {
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color);
+}
+
+.rocket {
+  position: absolute;
+  left: -200px;
+  font-size: clamp(80px, 4.5vw, 100px);
+  animation: rocket 5s linear 1s 1;
+  animation-play-state: paused;
+  will-change: transform;
+}
+#sec2:hover .rocket {
+  animation-play-state: running;
+}
+
+@keyframes rocket {
+  0% {
+    transform: translate(0px) rotate(0deg);
+  }
+  100% {
+    transform: translate(105vw) rotate(-360deg);
+  }
+}
