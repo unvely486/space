@@ -152,3 +152,77 @@ header:hover {
 .icons > a:last-child {
   display: none;
 }
+
+/* 컨텐츠 영역*/
+main,
+section {
+  width: 100%;
+  height: auto;
+}
+
+/*메인 비주얼*/
+.main_visual {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.visual_text {
+  width: 50%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 0 200px;
+}
+.visual_text > h2 {
+  font-size: clamp(80px, 4.5vw, 100px);
+  line-height: 1;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+.visual_text > h2 > span {
+  -webkit-text-fill-color: transparent; /*폰트의 벡터 배경색을 투명하게 바꿈*/
+  -webkit-text-stroke: 0.5px #fff; /*벡터는 패스를 따라 테두리가 생기므로,
+   1px이라고 설정하면 2px처럼 보인다. 첫번째 자리는 두께, 두번째 자리는 색상이다.*/
+}
+.visual_text p {
+  position: relative;
+  animation: text_up 2s ease 1s 1 forwards;
+  will-change: top opacity;
+  font-weight: 300;
+  font-size: var(--md-font-size);
+  line-height: var(--md-line-height);
+  opacity: 0;
+}
+@keyframes text_up {
+  from {
+    opacity: 0;
+    top: 50px;
+  }
+  to {
+    opacity: 1;
+    top: 0;
+  }
+}
+.visual_video {
+  width: 50%;
+  height: 100vh;
+  overflow: hidden;
+}
+.visual_video > video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 아래 화살표 아이콘 */
+.scroll_down {
+  position: absolute;
+  bottom: 50px;
+  transition: 0.3s linear;
+  filter: drop-shadow(0px 2px 3px #000);
+}
+.scroll_down:hover {
+  bottom: 55px;
+}
