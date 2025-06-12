@@ -342,7 +342,7 @@ section {
 }
 .sec4 > .con > .heading_left {
   width: clamp(480px, 30%, 480px);
-  height: 1300px;
+  height: 1320px; /*스티키가 움직일 수 있는 공간*/
   position: relative;
 }
 .heading_left > .text_box {
@@ -379,4 +379,191 @@ section {
 }
 .more:hover > i {
   transform: rotate(360deg);
+}
+
+/*오른쪽 컨텐츠 영역*/
+.right_con {
+  width: 70%;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 40px;
+}
+.data_box {
+  width: 60%;
+  height: 300px;
+  box-sizing: border-box;
+  padding: 20px;
+  /*transition에 의해 변화할 속성들 정의*/
+  transition-property: width, border-bottom, color;
+  /*width는 0.8s초,border-bottom은 0.1초,글자컬러는 0.5초 소요*/
+  transition-duration: 0.8s, 0.1s, 0.5s;
+  border-bottom: 1px solid #fff;
+  cursor: pointer;
+  position: relative;
+}
+.right_con .data_box:hover {
+  width: 70%;
+  border-bottom: 3px solid var(--main-color);
+  color: var(--main-color);
+}
+.right_con .data_box img {
+  position: absolute;
+  width: 300px;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: 1s;
+}
+.right_con .data_box:hover img {
+  transform: translateX(-320px);
+  opacity: 1;
+}
+
+.data_box h4 {
+  line-height: var(--md-line-height);
+  font-weight: 600;
+}
+
+.data_box h3 {
+  font-weight: 400;
+  text-transform: capitalize;
+  font-size: var(--xl-font-size);
+  line-height: var(--lg-line-height);
+  margin-bottom: 20px;
+}
+.data_box p {
+  font-size: var(--md-font-size);
+  font-weight: 200;
+}
+
+/*다섯번째 섹션*/
+.sec5 {
+  padding: 200px 0;
+  overflow: hidden;
+  position: relative;
+}
+.sec5 > .con {
+  position: relative;
+  z-index: 20;
+}
+.sec5 > .con > h2 > br {
+  display: none;
+}
+.card_wrap {
+  width: 100%;
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 12;
+}
+.card_wrap > .card {
+  width: calc(25% - 20px);
+  height: fit-content;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  transition: 0.5s;
+  cursor: pointer;
+  overflow: hidden;
+  will-change: width, flex;
+}
+.card_wrap > .card:hover {
+  width: calc(28% - 20px);
+}
+.card > .img_area {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+.card > .img_area img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  filter: grayscale(70%);
+  transition: 0.3s;
+}
+.card:hover > .img_area {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.card:hover > .img_area img {
+  filter: grayscale(0%) drop-shadow(3px 3px 3px rgb(86, 9, 211));
+}
+.card > .text_wrap {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30px;
+}
+.card > .text_wrap h3 {
+  font-size: var(--md-font-size);
+  margin-bottom: 20px;
+}
+.card > .text_wrap p {
+  height: 120px;
+}
+.card > .text_wrap .more:hover {
+  color: var(--sub-color);
+  border: 1px solid var(--sub-color);
+}
+
+/*롤링 텍스트*/
+.rolling {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  font-size: clamp(50px, 6vw, 100px);
+  font-weight: 800;
+  opacity: 0.8;
+  position: absolute;
+  top: 50%;
+  transform: rotate(10deg);
+}
+.rolling div {
+  display: flex;
+  gap: 30px;
+  position: absolute;
+  will-change: transform;
+  width: max-content;
+}
+.rolling div p {
+  flex-shrink: 0;
+}
+.rolling div p:nth-child(even) {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 2px var(--main-color);
+}
+.rolling div p:nth-child(odd) {
+  color: var(--main-color);
+}
+.fill_text {
+  animation: rolling1 12s linear infinite reverse;
+}
+.fill_text p:last-child {
+  margin-right: 30px;
+}
+.line_text {
+  animation: rolling2 12s linear infinite reverse;
+}
+@keyframes rolling1 {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes rolling2 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
